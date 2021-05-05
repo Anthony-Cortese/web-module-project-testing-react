@@ -14,18 +14,33 @@ const testEpisode = {
 
 const testEpisodeWithoutImage = {
     //Add in approprate test data structure here.
+    id:1,
+    name: "",
+    image: null,
+    season: 1,
+    number: 1,
+    summary: "",
+    runtime: 1
 }
 
 test("renders without error", () => {
-
+ render(<Episode episode={testEpisode} />)
 });
 
-test("renders the summury test passed as prop", ()=>{
+test("renders the summury text passed as prop", ()=>{
+    // render(<Episode summary={testEpisode.summary} />)
     
+    // const sumry = screen.queryByText(/haha/i);
+    // expect(sumry).toBeInTheDocument();
+    // expect(sumry).toHaveTextContent(/haha/i);
+    // expect(sumry).toBeTruthy();
 });
 
 test("renders default image when image is not defined", ()=>{
-    
+   render(<Episode episode={testEpisodeWithoutImage}/>)
+   
+   const altImg = screen.getByAltText(/stranger_things.png/i)
+   expect(altImg).toBeTruthy()
 })
 
 //Tasks

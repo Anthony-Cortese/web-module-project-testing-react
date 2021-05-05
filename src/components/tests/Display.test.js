@@ -1,3 +1,64 @@
+import React from 'react';
+import {screen, render, fireEvent} from '@testing-library/react';
+import Display from '../Display';
+import userEvent from '@testing-library/user-event';
+
+const testShow = {
+    name: '',
+    image: {},
+    summary: '',
+    seasons: [
+        {
+        id: 0,
+        name: 'Season 1', 
+        episodes: []
+        },
+        {
+        id: 1,
+        name: 'Season 2',
+        episodes: []
+        },
+        {
+        id: 2,
+        name: 'Season 3',
+        epsiodes: []
+        },
+        {
+            id: 3,
+            name: 'Season 4',
+            epsiodes: []
+            },
+    ]
+
+}
+
+test('Display renders', () => {
+    render(<Display />)
+})
+
+test('the fetch button is pressed, the show component will display.', () => {
+    const mockFetchData = jest.fn(() => {'fetched data'})
+    
+    render(<Display fetchData={mockFetchData} />);
+    const button = screen.getByRole('button');
+    fireEvent.click(button)
+
+    
+
+})
+
+test('fetch button is pressed, the amount of select options rendered is equal to the amount of seasons in your test data', () => {
+    const mockFetchData = jest.fn(() => {'fetched data'})
+    
+    render(<Display fetchData={mockFetchData} />);
+    const button = screen.getByRole('button');
+    fireEvent.click(button)
+
+    expect(mockFetchData.mock.calls).toHaveLength(4)
+
+
+})
+
 
 
 
