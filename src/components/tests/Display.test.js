@@ -54,7 +54,11 @@ test('fetch button is pressed, the amount of select options rendered is equal to
     const button = screen.getByRole('button');
     fireEvent.click(button)
 
-    expect(mockFetchData.mock.calls).toHaveLength(4)
+    // const totalSeasons = screen.getByRole('combobox')
+    // userEvent.selectOptions(totalSeasons, '1');
+    // expect(mockFetchData).toHaveLength(4);
+
+    // expect(mockFetchData.mock.calls).toHaveLength(4)
 
 
 })
