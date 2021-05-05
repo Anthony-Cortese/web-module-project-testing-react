@@ -48,17 +48,8 @@ test('the fetch button is pressed, the show component will display.', () => {
 })
 
 test('fetch button is pressed, the amount of select options rendered is equal to the amount of seasons in your test data', () => {
-    const mockFetchData = jest.fn(() => {'fetched data'})
-    
-    render(<Display fetchData={mockFetchData} />);
-    const button = screen.getByRole('button');
-    fireEvent.click(button)
 
-    // const totalSeasons = screen.getByRole('combobox')
-    // userEvent.selectOptions(totalSeasons, '1');
-    // expect(mockFetchData).toHaveLength(4);
 
-    // expect(mockFetchData.mock.calls).toHaveLength(4)
 
 
 })
